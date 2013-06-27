@@ -12,5 +12,31 @@ GET /service_requests/count.json?numero_do_pedido={orderIds}
 {
   "74":0,
   "75":0,
+  "20002335":1,
   "76":0
+}
+
+GET /service_requests/{ticketId}.json
+< 200
+< Content-Type: application/json
+{
+  "id":1,
+  "status":"open",
+  "created_at": 1372356520224,
+  "form": {
+    "4": {
+    "numero_do_pedido": 74,
+    "tipo_da_solicitacao": "PEDIDO"
+    }
+  },
+  "author": {
+  "email": "jmartins@wal-mart.com.br"
+  },
+  "customer": {
+  "email": "jmartins@wal-mart.com.br"
+  },
+  "requestable_service": {
+    "id": 8,
+    "name": "Entrega"
+  }
 }
