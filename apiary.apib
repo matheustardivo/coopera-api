@@ -18,6 +18,8 @@ GET /service_requests/count.json?numero_do_pedido={orderIds}
 
 
 -- Service Request --
+
+Consulta pelo id
 GET /service_requests/{ticketId}.json
 < 200
 < Content-Type: application/json
@@ -28,6 +30,7 @@ GET /service_requests/{ticketId}.json
   "form": {
     "4": {
     "numero_do_pedido": 74,
+    "numero_do_cliente": "123",
     "tipo_da_solicitacao": "PEDIDO"
     }
   },
@@ -43,6 +46,133 @@ GET /service_requests/{ticketId}.json
   }
 }
 
+Cria um novo service request
+POST /shopping-cart
+> Content-Type: application/json
+{
+  "form": {
+    "4": {
+      "numero_do_pedido": 74,
+      "numero_do_cliente": "11784267260",
+      "tipo_da_solicitacao": "PEDIDO"
+    }
+  },
+  "author": {
+    "email": "jmartins@wal-mart.com.br"
+  },
+  "customer": {
+    "email": "jmartins@wal-mart.com.br"
+  },
+  "requestable_service": {
+    "id": 7,
+    "name": "Entrega"
+  }
+}
+< 201
+< Content-Type: application/json
+{
+    "id": 7,
+    "name": "Atraso na entrega",
+    "description": "teste",
+    "version": 1,
+    "company": {
+        "company": {
+            "created_at": "2013-04-09T10:19:39-03:00",
+            "id": 1,
+            "inactivated_at": null,
+            "name": "Walmart",
+            "updated_at": "2013-04-09T10:19:39-03:00"
+        }
+    },
+    "status": "published",
+    "created_at": "2013-06-24T15:33:20-03:00",
+    "updated_at": "2013-06-24T15:33:20-03:00",
+    "sla": null,
+    "sla_version": null,
+    "service_category": {
+        "id": 2,
+        "name": "Entrega",
+        "ancestry": null,
+        "description": null
+    },
+    "execution_team": {
+        "id": 3,
+        "name": "Back Office"
+    },
+    "responsible_team": {
+        "id": 3,
+        "name": "Back Office"
+    },
+    "forms": [
+        {
+            "form": {
+                "id": 4,
+                "data": [
+                    {
+                        "other": "Outros",
+                        "type": "radio",
+                        "name": "field13722638704153",
+                        "label": "Tipo da solicitação",
+                        "options": [
+                            "PEDIDO",
+                            "CLIENTE"
+                        ],
+                        "required": false,
+                        "position": 0
+                    },
+                    {
+                        "other": "Outros",
+                        "type": "text",
+                        "name": "field137210506062410",
+                        "label": "Nome do Cliente",
+                        "placeholder": "texto de ajuda",
+                        "position": 1
+                    },
+                    {
+                        "other": "Outros",
+                        "type": "number",
+                        "name": "field13721048557414",
+                        "label": "Número do Cliente",
+                        "position": 2
+                    },
+                    {
+                        "other": "Outros",
+                        "type": "number",
+                        "name": "field13720960963763",
+                        "label": "Número do Pedido",
+                        "position": 3
+                    },
+                    {
+                        "other": "Outros",
+                        "type": "datetime",
+                        "name": "field13721052678636",
+                        "label": "Data do pedido",
+                        "position": 4
+                    },
+                    {
+                        "other": "Outros",
+                        "type": "table",
+                        "name": "field137209613567910",
+                        "label": "Entrega",
+                        "columns": [
+                            "Entrega",
+                            "Status da Entrega",
+                            "Cod do Item",
+                            "Descrição do item",
+                            "Quantidade",
+                            "Valor unitario",
+                            "Valor total",
+                            "Nota Fiscal",
+                            "Filial",
+                            "Transportadora"
+                        ],
+                        "position": 5
+                    }
+                ]
+            }
+        }
+    ]
+}
 
 -- Requestable Service --
 GET /requestable_services/{id}.json
