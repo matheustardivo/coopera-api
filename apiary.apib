@@ -1,142 +1,18 @@
-HOST: http://sac-walmart.coopera-csc.com/
+HOST: http://sac-walmart.coopera-csc.com/api/v1/
 
 --- Coopera API V1 ---
----
-Welcome to the our sample API documentation. All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
----
+--
+Coopera Ticket Resource
+The following is a section of resources related to the ticket services in Coopera
+--
 
---
-Order Delivery resource
-The following is a section of resources related to the order delivery
---
-Get order delivery deadline from order delivery id
-GET /api/deliveries/{id}/deadline
+GET /service_requests/count.json?numero_do_pedido={orderIds}
 < 200
 < Content-Type: application/json
-{
-    "promisedDate": 1214881200000,
-    "limitOutputDate": 1214449200000,
-    "effectiveOutputDate": 1214512540000,
-    "adjustedInputDate": 1214881200000,
-    "deliveryType": 1,
-    "deliveryTypeEnum": "NORMAL",
-    "deliveryScheduled":false
-}
-
-Get order delivery status from order delivery id
-GET /api/deliveries/{id}/status
-< 200
-< Content-Type: application/json
-[
+{"count":
   {
-    "cod": "ENT",
-    "deliveryId": 7401,
-    "deliveryStatusType": "GTE",
-    "startDate": 1215020700000,
-    "endDate": 1215695444000,
-    "statusDesc": "Entrega Realizada",
-    "statusLongDesc": "PEDIDO ENTREGUE COM SUCESSO AO CLIENTE."
-  },
-  {
-    "cod": "ETR",
-    "deliveryId": 7401,
-    "deliveryStatusType": "SG",
-    "startDate": 1214512540000,
-    "endDate": 1214514994000,
-    "statusDesc": "Entregue a Transportadora",
-    "statusLongDesc": "Expedição concluída, mercadoria esta com a transportadora para ser entregue ao cliente."
-  },
-  {
-    "cod": "NFS",
-    "deliveryId": 7401,
-    "deliveryStatusType": "SG",
-    "startDate": 1214507766000,
-    "endDate": 1214507766000,
-    "statusDesc": "NF emitida",
-    "statusLongDesc": "Nota fiscal já emitida, pedido já em expedição.\nNão é mais possível cancelar o pedido.\n(deve-se cancelar a NF remessa ou gerar NF de entrada)"
-  },
-  {
-    "cod": "WMS",
-    "deliveryId": 7401,
-    "deliveryStatusType": "SG",
-    "startDate": 1214421617000,
-    "endDate": 1214421617000,
-    "statusDesc": "No WMS",
-    "statusLongDesc": "Coletando as mercadorias para expedição e envio ao cliente."
-  },
-  {
-    "cod": "PAP",
-    "deliveryId": 7401,
-    "deliveryStatusType": "SG",
-    "startDate": 1214420905000,
-    "endDate": 1214420905000,
-    "statusDesc": "Pedido aprovado",
-    "statusLongDesc": "Pagamento do pedido foi aprovado. Separação do pedido está liberada."
-  },
-  {
-    "cod": "AAP",
-    "deliveryId": 7401,
-    "deliveryStatusType": "SG",
-    "startDate": 1214420762000,
-    "endDate": 1214420762000,
-    "statusDesc": "Aguardando aprovacao de pagamento",
-    "statusLongDesc": "Aguardando analise de pagamento\nCartão = aguarda analise da administradora do cartão\nBoleto/TEF = aguarda confirmagco do pagamento do boleto"
-  },
-  {
-    "cod": "CAP",
-    "deliveryId": 7401,
-    "deliveryStatusType": "SG",
-    "startDate": 1214420762000,
-    "endDate": 1214420762000,
-    "statusDesc": "Análise Cadastral Aprovada",
-    "statusLongDesc": "Crédito aprovado.(*)"
-  },
-  {
-    "cod": "ACR",
-    "deliveryId": 7401,
-    "deliveryStatusType": "SG",
-    "startDate": 1214410136000,
-    "endDate": 1214410136000,
-    "statusDesc": "Aguardando analise de credito",
-    "statusLongDesc": "Aguardando análise de fraude (no sistema RAS)"
-  },
-  {
-    "cod": "PEI",
-    "deliveryId": 7401,
-    "deliveryStatusType": "SG",
-    "startDate": 1214410136000,
-    "endDate": 1214410136000,
-    "statusDesc": "Pedido incluido",
-    "statusLongDesc": "Pedido foi incluído no sistema eSIGE"
+    "999":0,
+    "998":0,
+    "997":0
   }
-]
-
-
---
-Other resource
-The documentation of resource
---
-List products added into your shopping-cart. (comment block again in Markdown)
-GET /shopping-cart
-< 200
-< Content-Type: application/json
-{ "items": [
-{ "url": "/shopping-cart/1", "product":"2ZY48XPZ", "quantity": 1, "name": "New socks", "price": 1.25 }
-] }
-
-
-Save new products in your shopping cart
-POST /shopping-cart
-> Content-Type: application/json
-{ "product":"1AB23ORM", "quantity": 2 }
-< 201
-< Content-Type: application/json
-{ "status": "created", "url": "/shopping-cart/2" }
-
-
--- Payment Resources --
-This resource allows you to submit payment information to process your *shopping cart* items
-POST /payment
-{ "cc": "12345678900", "cvc": "123", "expiry": "0112" }
-< 200
-{ "receipt": "/payment/receipt/1" }
+}
