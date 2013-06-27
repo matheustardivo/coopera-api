@@ -9,7 +9,7 @@ Welcome to the our sample API documentation. All comments can be written in (sup
 Order Delivery resource
 The following is a section of resources related to the order delivery
 --
-Get order delivery deadline
+Get order delivery deadline from order delivery id
 GET /api/deliveries/{id}/deadline
 < 200
 < Content-Type: application/json
@@ -22,6 +22,94 @@ GET /api/deliveries/{id}/deadline
     "deliveryTypeEnum": "NORMAL",
     "deliveryScheduled":false
 }
+
+Get order delivery status from order delivery id
+GET /api/deliveries/{id}/status
+< 200
+< Content-Type: application/json
+[
+  {
+    "cod": "ENT",
+    "deliveryId": 7401,
+    "deliveryStatusType": "GTE",
+    "startDate": 1215020700000,
+    "endDate": 1215695444000,
+    "statusDesc": "Entrega Realizada",
+    "statusLongDesc": "PEDIDO ENTREGUE COM SUCESSO AO CLIENTE."
+  },
+  {
+    "cod": "ETR",
+    "deliveryId": 7401,
+    "deliveryStatusType": "SG",
+    "startDate": 1214512540000,
+    "endDate": 1214514994000,
+    "statusDesc": "Entregue a Transportadora",
+    "statusLongDesc": "Expedição concluída, mercadoria esta com a transportadora para ser entregue ao cliente."
+  },
+  {
+    "cod": "NFS",
+    "deliveryId": 7401,
+    "deliveryStatusType": "SG",
+    "startDate": 1214507766000,
+    "endDate": 1214507766000,
+    "statusDesc": "NF emitida",
+    "statusLongDesc": "Nota fiscal já emitida, pedido já em expedição.\nNão é mais possível cancelar o pedido.\n(deve-se cancelar a NF remessa ou gerar NF de entrada)"
+  },
+  {
+    "cod": "WMS",
+    "deliveryId": 7401,
+    "deliveryStatusType": "SG",
+    "startDate": 1214421617000,
+    "endDate": 1214421617000,
+    "statusDesc": "No WMS",
+    "statusLongDesc": "Coletando as mercadorias para expedição e envio ao cliente."
+  },
+  {
+    "cod": "PAP",
+    "deliveryId": 7401,
+    "deliveryStatusType": "SG",
+    "startDate": 1214420905000,
+    "endDate": 1214420905000,
+    "statusDesc": "Pedido aprovado",
+    "statusLongDesc": "Pagamento do pedido foi aprovado. Separação do pedido está liberada."
+  },
+  {
+    "cod": "AAP",
+    "deliveryId": 7401,
+    "deliveryStatusType": "SG",
+    "startDate": 1214420762000,
+    "endDate": 1214420762000,
+    "statusDesc": "Aguardando aprovacao de pagamento",
+    "statusLongDesc": "Aguardando analise de pagamento\nCartão = aguarda analise da administradora do cartão\nBoleto/TEF = aguarda confirmagco do pagamento do boleto"
+  },
+  {
+    "cod": "CAP",
+    "deliveryId": 7401,
+    "deliveryStatusType": "SG",
+    "startDate": 1214420762000,
+    "endDate": 1214420762000,
+    "statusDesc": "Análise Cadastral Aprovada",
+    "statusLongDesc": "Crédito aprovado.(*)"
+  },
+  {
+    "cod": "ACR",
+    "deliveryId": 7401,
+    "deliveryStatusType": "SG",
+    "startDate": 1214410136000,
+    "endDate": 1214410136000,
+    "statusDesc": "Aguardando analise de credito",
+    "statusLongDesc": "Aguardando análise de fraude (no sistema RAS)"
+  },
+  {
+    "cod": "PEI",
+    "deliveryId": 7401,
+    "deliveryStatusType": "SG",
+    "startDate": 1214410136000,
+    "endDate": 1214410136000,
+    "statusDesc": "Pedido incluido",
+    "statusLongDesc": "Pedido foi incluído no sistema eSIGE"
+  }
+]
 
 
 --
