@@ -50,22 +50,24 @@ Cria um novo service request
 POST /service_requests.json
 > Content-Type: application/json
 {
-  "form": {
-    "4": {
-      "numero_do_pedido": 74,
-      "numero_do_cliente": "11784267260",
-      "tipo_da_solicitacao": "PEDIDO"
+  "service_request": {
+    "form": {
+      "4": {
+        "numero_do_pedido": 74,
+        "numero_do_cliente": "11784267260",
+        "tipo_da_solicitacao": "PEDIDO"
+      }
+    },
+    "author": {
+      "email": "jmartins@wal-mart.com.br"
+    },
+    "customer": {
+      "email": "jmartins@wal-mart.com.br"
+    },
+    "requestable_service": {
+      "id": 7,
+      "name": "Entrega"
     }
-  },
-  "author": {
-    "email": "jmartins@wal-mart.com.br"
-  },
-  "customer": {
-    "email": "jmartins@wal-mart.com.br"
-  },
-  "requestable_service": {
-    "id": 7,
-    "name": "Entrega"
   }
 }
 < 201
