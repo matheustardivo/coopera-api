@@ -47,7 +47,7 @@ GET /service_requests/{ticketId}.json
 }
 
 Cria um novo service request
-POST /shopping-cart
+POST /service_requests.json
 > Content-Type: application/json
 {
   "form": {
@@ -174,6 +174,58 @@ POST /shopping-cart
     ]
 }
 
+Reabertura de ticket
+PUT /service_requests/{ticketId}/restart
+< 200
+< Content-Type: application/json
+{
+  "id":1,
+  "status":"open",
+  "created_at": "2013-06-24T15:33:20-03:00",
+  "form": {
+    "4": {
+    "numero_do_pedido": 74,
+    "tipo_da_solicitacao": "PEDIDO"
+    }
+  },
+  "author": {
+  "email": "jmartins@wal-mart.com.br"
+  },
+  "customer": {
+  "email": "jmartins@wal-mart.com.br"
+  },
+  "requestable_service": {
+    "id": 8,
+    "name": "Entrega"
+  }
+}
+
+Cancelamento de ticket
+PUT /service_requests/{ticketId}/cancel
+< 200
+< Content-Type: application/json
+{
+  "id":1,
+  "status":"canceled",
+  "created_at": "2013-06-24T15:33:20-03:00",
+  "form": {
+    "4": {
+    "numero_do_pedido": 74,
+    "tipo_da_solicitacao": "PEDIDO"
+    }
+  },
+  "author": {
+  "email": "jmartins@wal-mart.com.br"
+  },
+  "customer": {
+  "email": "jmartins@wal-mart.com.br"
+  },
+  "requestable_service": {
+    "id": 8,
+    "name": "Entrega"
+  }
+}
+
 -- Requestable Service --
 GET /requestable_services/{id}.json
 < 200
@@ -280,57 +332,4 @@ GET /requestable_services/{id}.json
             }
         }
     ]
-}
-
-
--- Cancel Service Request --
-PUT /service_requests/{ticketId}/cancel
-< 200
-< Content-Type: application/json
-{
-  "id":1,
-  "status":"canceled",
-  "created_at": "2013-06-24T15:33:20-03:00",
-  "form": {
-    "4": {
-    "numero_do_pedido": 74,
-    "tipo_da_solicitacao": "PEDIDO"
-    }
-  },
-  "author": {
-  "email": "jmartins@wal-mart.com.br"
-  },
-  "customer": {
-  "email": "jmartins@wal-mart.com.br"
-  },
-  "requestable_service": {
-    "id": 8,
-    "name": "Entrega"
-  }
-}
-
--- Reopen Service Request --
-PUT /service_requests/{ticketId}/restart
-< 200
-< Content-Type: application/json
-{
-  "id":1,
-  "status":"open",
-  "created_at": "2013-06-24T15:33:20-03:00",
-  "form": {
-    "4": {
-    "numero_do_pedido": 74,
-    "tipo_da_solicitacao": "PEDIDO"
-    }
-  },
-  "author": {
-  "email": "jmartins@wal-mart.com.br"
-  },
-  "customer": {
-  "email": "jmartins@wal-mart.com.br"
-  },
-  "requestable_service": {
-    "id": 8,
-    "name": "Entrega"
-  }
 }
