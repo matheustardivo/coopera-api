@@ -253,3 +253,25 @@ GET /requestable_services/{id}.json
         }
     ]
 }
+
+Cria um novo commentario
+POST /service_requests/{ticketId}/comments.json
+> Content-Type: application/json
+{
+  "author": {
+    "nickname": "anUser"
+  },
+  "comment": "This is a description!!",
+  "eventType": ["INCOMING_CALL"]
+}
+< 201
+< Content-Type: application/json
+{
+  "id": "12345",
+  "author": {
+    "nickname": "anUser"
+  },
+  "comment":"This is a description!!",
+  "createdAt":"Jun 28, 2013 8:30:39 AM",
+  "eventType":["INCOMING_CALL"]
+}
