@@ -96,6 +96,13 @@ POST /service_requests.json
 
 Reabertura de ticket
 PUT /service_requests/{ticketId}/restart
+> Content-Type: application/json
+{
+  "author": {
+    "nickname": "anUser"
+  },
+  "comment": "This is a description!!"
+}
 < 200
 < Content-Type: application/json
 {
@@ -122,6 +129,13 @@ PUT /service_requests/{ticketId}/restart
 
 Cancelamento de ticket
 PUT /service_requests/{ticketId}/cancel
+> Content-Type: application/json
+{
+  "author": {
+    "nickname": "anUser"
+  },
+  "comment": "This is a description!!"
+}
 < 200
 < Content-Type: application/json
 {
