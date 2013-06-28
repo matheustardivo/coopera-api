@@ -31,7 +31,43 @@ GET /service_requests/{ticketId}.json
     "4": {
     "numero_do_pedido": 74,
     "numero_do_cliente": "123",
-    "tipo_da_solicitacao": "PEDIDO"
+    "tipo_da_solicitacao": "PEDIDO",
+    "entregas": [
+        {
+          "0": "7401",
+          "1": "74",
+          "2": "123"
+        },
+        {
+          "0": "7401",
+          "1": "74",
+          "2": "124"
+        },
+        {
+          "0": "7402",
+          "1": "74"
+        }
+      ],
+      "items": [
+        {
+          "0": "123",
+          "1": "celular",
+          "2": "teste",
+          "3": "7401"
+        },
+        {
+          "0": "124",
+          "1": "tv",
+          "2": "teste",
+          "3": "7401"
+        },
+        {
+          "0": "125",
+          "1": "garantia",
+          "2": "teste",
+          "3": "7402"
+        }
+      ]
     }
   },
   "author": {
