@@ -6,6 +6,8 @@ Coopera Ticket Resource
 The following is a section of resources related to the ticket services in Coopera
 --
 
+-- Service Request --
+Count de tickets por pedido
 GET /service_requests/count.json?numero_do_pedido={orderIds}
 < 200
 < Content-Type: application/json
@@ -15,9 +17,6 @@ GET /service_requests/count.json?numero_do_pedido={orderIds}
   "20002335":1,
   "76":0
 }
-
-
--- Service Request --
 
 Consulta pelo id
 GET /service_requests/{ticketId}.json
@@ -304,7 +303,7 @@ GET /requestable_services/{id}.json
     ]
 }
 
-Cria um novo commentario
+Cria um novo comentario
 POST /service_requests/{ticketId}/comments.json
 > Content-Type: application/json
 {
