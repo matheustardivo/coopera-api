@@ -195,7 +195,30 @@ PUT /service_requests/{ticketId}/cancel
   }
 }
 
+Cria um novo comentario
+POST /service_requests/{ticketId}/comments.json
+> Content-Type: application/json
+{
+  "author": {
+    "nickname": "anUser"
+  },
+  "comment": "This is a description!!",
+  "tags": ["INCOMING_CALL"]
+}
+< 201
+< Content-Type: application/json
+{
+  "id": "12345",
+  "author": {
+    "nickname": "anUser"
+  },
+  "comment":"This is a description!!",
+  "created_at":"2013-06-28T08:30:39-03:00",
+  "tags":["INCOMING_CALL"]
+}
+
 -- Requestable Service --
+Recupera service request por id
 GET /requestable_services/{id}.json
 < 200
 < Content-Type: application/json
@@ -301,26 +324,4 @@ GET /requestable_services/{id}.json
             }
         }
     ]
-}
-
-Cria um novo comentario
-POST /service_requests/{ticketId}/comments.json
-> Content-Type: application/json
-{
-  "author": {
-    "nickname": "anUser"
-  },
-  "comment": "This is a description!!",
-  "tags": ["INCOMING_CALL"]
-}
-< 201
-< Content-Type: application/json
-{
-  "id": "12345",
-  "author": {
-    "nickname": "anUser"
-  },
-  "comment":"This is a description!!",
-  "created_at":"2013-06-28T08:30:39-03:00",
-  "tags":["INCOMING_CALL"]
 }
