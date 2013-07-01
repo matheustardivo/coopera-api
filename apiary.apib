@@ -219,25 +219,6 @@ POST /service_requests/{ticketId}/comments.json
   "tags":["INCOMING_CALL"]
 }
 
--- JSON Schema Validations --
-POST /service_requests/{ticketId}/comments.json
-{
-  "type": "object", "required": true,
-    "properties": {
-      "comment": {
-        "type": "object", "required": true,
-        "properties": {
-          "text": {"type": "string"},
-      "tags": {"type": "array", "items": {"type": "string"}},
-      "author": {"type": "object", "required": true,
-            "properties": { "email": {"type": "string"} }
-          }
-            
-        }
-      }
-    }
-}
-
 -- Requestable Service --
 Recupera service request por id
 GET /requestable_services/{id}.json
