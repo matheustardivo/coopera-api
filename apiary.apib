@@ -199,18 +199,20 @@ Cria um novo comentario
 POST /service_requests/{ticketId}/comments.json
 > Content-Type: application/json
 {
-  "author": {
-    "nickname": "anUser"
-  },
-  "comment": "This is a description!!",
-  "tags": ["INCOMING_CALL"]
+  "comment": {
+    "text": "test",
+    "author": {
+      "email": "wellington.pinheiro@gmail.com"
+    },
+    "tags": ["INCOMING_CALL"]
+  }
 }
 < 201
 < Content-Type: application/json
 {
   "id": "12345",
   "author": {
-    "nickname": "anUser"
+    "email": "wellington.pinheiro@gmail.com"
   },
   "comment":"This is a description!!",
   "created_at":"2013-06-28T08:30:39-03:00",
